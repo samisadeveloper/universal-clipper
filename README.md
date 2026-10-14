@@ -2,4 +2,4 @@
 <h1>Universal Clipper<br><br></h1>
 <br clear="left" />
 
-Universal Clipper is an operating system agnostic clipping application built as an open source, OS agnostic alternative to others such as [Medal](https://medal.tv) and [Outplayed](https://outplayed.tv) 
+Universal Clipper is an open source operating system agnostic clipping application built as an alternative to others such as [Medal](https://medal.tv) and [Outplayed](https://outplayed.tv) 
