@@ -1,19 +1,19 @@
 using SharpHook.Data;
 
 public class Configuration {
-        private String? videosDirectory;
+        private string? videosDirectory;
         private KeyCode? hotKey;
         private int clipSizeSeconds = 60;
 
-        private String? inputDevice;
-        private String? outputDevice;
+        private string? inputDevice;
+        private string? outputDevice;
 
         public KeyCode HotKey {
                 get => hotKey ?? KeyCode.VcF8;
                 set => hotKey = value;
         }
 
-        public String VideosDirectory {
+        public string VideosDirectory {
                 get => videosDirectory ?? GetDefaultVideoDirectory();
                 set => videosDirectory = value;
         }
@@ -23,33 +23,22 @@ public class Configuration {
                 set => clipSizeSeconds = value;
         }
 
-        public String InputDevice {
+        public string InputDevice {
                 get => inputDevice ?? "default_input";
                 set => inputDevice = value;
         }
 
-        public String OutputDevice {
+        public string OutputDevice {
                 get => outputDevice ?? "default_output";
                 set => outputDevice = value;
         }
 
-        public static String GetDefaultVideoDirectory() {
-                if (System.OperatingSystem.IsLinux()) {
-                        String userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-
-                        return Path.Combine(userProfile, "Videos", "universal-clipper");
-                }
-
-                throw new NotSupportedException("This operating system is not currently supported");
+        public static string GetDefaultVideoDirectory() {
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos), "universal-clipper");
         }
 
-        public static String getConfigurationDirectory() {
-                if (System.OperatingSystem.IsLinux()) {
-                        // do stuff
-                        // not the user profile btw
-                }
-
-                throw new NotSupportedException("This operating system is not currently supported");
+        public static string getConfigurationDirectory() {
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "universal-clipper");
         }
 
         public void Save() {
