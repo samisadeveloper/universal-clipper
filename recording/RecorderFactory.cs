@@ -4,6 +4,10 @@ public class RecorderFactory {
                         return new LinuxRecorder();
                 }
 
-                throw new NotSupportedException("This opeating system is not currently supported");
+                if (System.OperatingSystem.IsWindows()) {
+                        return new WindowsRecorder();
+                }
+
+                throw new NotSupportedException("This operating system is not currently supported");
         }
 }
