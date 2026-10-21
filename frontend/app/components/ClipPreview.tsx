@@ -34,7 +34,7 @@ export default function ClipPreview({clip}: {clip: Clip}) {
         const [muted, setMuted] = useState(true);
 
         return (
-                <div style={{ backgroundColor: primaryColor, boxShadow: '5px 5px 25px rgba(0, 0, 0, 0.85)', borderRadius: 5, margin: 15 }}>
+                <div style={{ backgroundColor: primaryColor, boxShadow: '5px 5px 25px rgba(0, 0, 0, 0.85)', borderRadius: 5, margin: 15, width: '95%' }}>
                         <motion.div 
                         onMouseEnter={(event) => {
                                 const video = event.currentTarget.querySelector('video') as HTMLVideoElement;
@@ -55,14 +55,15 @@ export default function ClipPreview({clip}: {clip: Clip}) {
 
                         whileHover="zoomed"
 
-                        style={{ position: 'relative', overflow: "hidden", width: '800', height: '800'}}>
+                        style={{ position: 'relative', overflow: "hidden"}}>
                                 <motion.video 
                                         variants={{zoomed: {scale: 1.05}}}
                                         muted={muted}
                                         playsInline
                                         loop
-                                        width="800"
-                                        height="800"
+                                        width='100%'
+                                        height='100%'
+                                        style={{objectFit: 'cover'}}
                                         src={`http://localhost:5000/media/${clip.id}.mp4`}
                                 />
 
@@ -83,6 +84,7 @@ export default function ClipPreview({clip}: {clip: Clip}) {
                                         {!muted && <FaVolumeUp style={{color: 'white', fontSize: 20}} />}
                                 </motion.div>
                         </motion.div>
+
                         <div style={{marginLeft: 15, marginTop: 5}}>
                                 <h1 style={{ fontWeight: '530', fontSize: 25}}>{clip.title}</h1>
 

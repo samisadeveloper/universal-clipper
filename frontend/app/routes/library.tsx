@@ -18,7 +18,10 @@ const secondaryText = '#b6b6b8';
 
 function LibraryView({ clips }: {clips: Clip[]}) {
         return (
-                <div style={{display: "grid", gridTemplateColumns: "auto auto auto"}}>
+                <div style={{
+                        display: "grid",
+                        gridTemplateColumns: "auto auto auto"
+                }}>
                         {clips.map(clip => (
                                 <ClipPreview key={clip.id} clip={clip} />
                         ))}
@@ -63,7 +66,7 @@ export default function Library() {
                                 </motion.div>
                         </div>
 
-                        <div style={{marginRight: 15, marginLeft: 15}}>
+                        <div style={{justifyItems: 'center'}}>
                                 {clips.length > 0 && <LibraryView clips={clips}/>}
                                 {clips.length < 1 && 
                                         <div style={{alignContent: 'center', justifyItems: 'center', height: '100vh'}}>
