@@ -1,15 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
-    <RootNamespace>universal_clipper_client</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+        <PropertyGroup>
+                <EnableWindowsTargeting>true</EnableWindowsTargeting>
 
-  <ItemGroup>
-    <PackageReference Include="SharpHook" Version="8.0.0" />
-  </ItemGroup>
+                <OutputType>Exe</OutputType>
+                <TargetFrameworks>net8.0;net8.0-windows</TargetFrameworks>
+                <RootNamespace>universal_clipper_client</RootNamespace>
+                <ImplicitUsings>enable</ImplicitUsings>
+                <Nullable>enable</Nullable>
+        </PropertyGroup>
+
+        <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+                <OutputType>Exe</OutputType>
+                <Platform>x64</Platform>
+                <Platforms>x64</Platforms>
+                <PlatformTarget>x64</PlatformTarget>
+                <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        </PropertyGroup>
+
+        <ItemGroup>
+                <PackageReference Include="SharpHook" Version="8.0.0" />
+        </ItemGroup>
+
+        <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+                <PackageReference Include="ScreenRecorderLib" Version="7.0.1" />
+        </ItemGroup>
+
+        <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+                <DefineConstants>$(DefineConstants);OS_WINDOWS</DefineConstants>
+        </PropertyGroup>
 
 </Project>

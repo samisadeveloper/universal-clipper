@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup Condition="!$([MSBuild]::IsOSPlatform('Windows'))">
+    <BaseIntermediateOutputPath>obj-wsl/</BaseIntermediateOutputPath>
+    <BaseOutputPath>bin-wsl/</BaseOutputPath>
+  </PropertyGroup>
+</Project>
