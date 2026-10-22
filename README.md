@@ -2,7 +2,12 @@
 <h1>Universal Clipper<br><br></h1>
 <br clear="left" />
 
-Universal Clipper is an open source clipping application built as an operating system agnostic alternative to others such as [Medal](https://medal.tv) and [Outplayed](https://outplayed.tv)
+Universal Clipper is an operating system agnostic instant-replay game clipper.<br> 
+Press one hotkey to save the last 20 seconds of gameplay, share with others in an instant, optionally upload to a cloud provider of your choice.
+
+> [!NOTE]
+> Please note Universal Clipper is in the very early stages of development.
+> Bugs are to be expected.
 
 # Roadmap
 - [x] Write a wrapper for the linux video backend (gpu-screen-recorder)
@@ -11,8 +16,8 @@ Universal Clipper is an open source clipping application built as an operating s
 - [ ] Upload to the cloud
 
 # Installation
-1: Download a binary from releases.
-2: Once installed and running go [The Website](https://clips.samisa.dev)
+1: Download a binary from releases.<br>
+2: Once installed and running go [The Website](https://clips.samisa.dev)<br>
 3: Start making clips!
 
 # Disclaimer
