@@ -8,7 +8,7 @@ import { BiSolidInvader } from "react-icons/bi";
 import { FaVolumeMute } from "react-icons/fa";
 import { FaVolumeUp } from "react-icons/fa";
 
-import { useState, type MouseEventHandler, type ReactNode } from "react";
+import { useState, type DialogHTMLAttributes, type MouseEventHandler, type ReactNode, type Ref } from "react";
 import { motion } from "motion/react";
 
 const primaryColor = "#2a2d40";
@@ -30,7 +30,7 @@ function Button({icon, text, clicked}: {icon: ReactNode, text: string, clicked: 
         );
 }
 
-export default function ClipPreview({clip}: {clip: Clip}) {
+export default function ClipPreview({clip, onClickVideo}: {clip: Clip, onClickVideo: MouseEventHandler<HTMLVideoElement>}) {
         const [muted, setMuted] = useState(true);
 
         return (
@@ -49,10 +49,6 @@ export default function ClipPreview({clip}: {clip: Clip}) {
                                 setMuted(true);
                         }}
 
-                        onClick={() => {
-                                setMuted(!muted);
-                        }}
-
                         whileHover="zoomed"
 
                         style={{ position: 'relative', overflow: "hidden"}}>
@@ -65,9 +61,15 @@ export default function ClipPreview({clip}: {clip: Clip}) {
                                         height='100%'
                                         style={{objectFit: 'cover'}}
                                         src={`http://localhost:5000/media/${clip.id}.mp4`}
+
+                                        onClick={onClickVideo}
                                 />
 
                                 <motion.div 
+                                        onClick={() => {
+                                                setMuted(!muted);
+                                        }}
+
                                         style={{ 
                                                 backgroundColor: primaryColor,
                                                 borderRadius: 10,
