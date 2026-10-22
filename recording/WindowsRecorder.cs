@@ -1,23 +1,25 @@
 #if OS_WINDOWS
 using ScreenRecorderLib;
+using universal_clipper_client;
 
 class WindowsRecorder : IRecorder {
-        Stream stream = Stream.Null;
+        RollingMp4Stream? buffer;
         Recorder? recorder;
 
         public void Start() {
-                RecorderOptions options = new RecorderOptions {};
+                RecorderOptions options = new RecorderOptions {
+                        VideoEncoderOptions = new VideoEncoderOptions
+                        {
+                                IsFragmentedMp4Enabled = true,
+                                IsHardwareEncodingEnabled = true,
+                        }
+                };
 
-                recorder = Recorder.CreateRecorder();
+                buffer = new RollingMp4Stream(TimeSpan.FromSeconds(30));
 
-                string fileName = Guid.NewGuid().ToString() + ".mp4";
+                recorder = Recorder.CreateRecorder(options);
 
-                // lets just write to a file now until we find a real solution
-                recorder.Record(Path.Combine(Program.getConfiguration().VideosDirectory, fileName));
-
-                // TODO: find a way to record in a buffer
-                // record to a stream and instead of ending the recording just switch between both streams (possibly)
-                // recorder.Record(stream);
+                recorder.Record(buffer);
         }
 
         public void End() {
@@ -26,9 +28,12 @@ class WindowsRecorder : IRecorder {
 
         public void Save() {
                 if (recorder == null) throw new Exception("Recording has not started!");
+                if (buffer == null) throw new Exception("No buffer found!");
 
-                recorder.Stop();
+                string fileName = Guid.NewGuid().ToString() + ".mp4";
+                string path = Program.getConfiguration().VideosDirectory;
 
+                buffer?.SaveSnapshot(Path.Combine(path, fileName));
                 Console.WriteLine("Saved a recording");
         }
 
