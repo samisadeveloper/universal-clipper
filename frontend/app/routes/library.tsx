@@ -1,6 +1,8 @@
 import type { Route } from "./+types/library";
 import { isDaemonRunning, useClips, type Clip } from "../ClipLoader";
 import ClipPreview from "../components/ClipPreview";
+import { useEffect, useState } from "react";
+import Header from "../components/Header";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,29 +11,14 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-import { BiSolidVideo } from "react-icons/bi";
-import { IoIosSettings } from "react-icons/io";
-import { motion } from "motion/react";
-import { useEffect, useState } from "react";
+
 
 const secondaryText = '#b6b6b8';
-
-function LibraryView({ clips }: {clips: Clip[]}) {
-        return (
-                <div style={{
-                        display: "grid",
-                        gridTemplateColumns: "auto auto auto"
-                }}>
-                        {clips.map(clip => (
-                                <ClipPreview key={clip.id} clip={clip} />
-                        ))}
-                </div>
-        );
-}
 
 export default function Library() {
         const { clips } = useClips();
 
+        const [ currentClip, setClip ] = useState<Clip>();
         const [isRunning, setRunning] = useState(false);
 
         useEffect(() => {
@@ -46,28 +33,21 @@ export default function Library() {
 
         return (
                 <div>
-                        <div style={{backgroundColor: '#1f212b', width: '100%', height: 50, display: 'flex', gap: 20}}>
-                                <motion.div 
-                                whileHover={{scale: 1.1}}
-
-                                style={{cursor: 'pointer', marginLeft: 20, display: 'flex', alignItems: 'center', gap: 5}}
-                                >
-                                        <BiSolidVideo />
-                                        <p>View Library</p>
-                                </motion.div>
-
-                                <motion.div 
-                                whileHover={{scale: 1.1}}
-
-                                style={{cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 5}}
-                                >
-                                        <IoIosSettings />
-                                        <p>Settings</p>
-                                </motion.div>
-                        </div>
+                        <Header />
 
                         <div style={{justifyItems: 'center'}}>
-                                {clips.length > 0 && <LibraryView clips={clips}/>}
+                                {clips.length > 0 && 
+                                        <div style={{
+                                                display: "grid",
+                                                gridTemplateColumns: "auto auto auto"
+                                        }}>
+                                        {clips.map(clip => (
+                                                <ClipPreview key={clip.id} clip={clip} onClickVideo={() => {
+                                                        setClip(clip);
+                                                }}/>
+                                        ))}
+                                </div>
+                                }
                                 {clips.length < 1 && 
                                         <div style={{alignContent: 'center', justifyItems: 'center', height: '100vh'}}>
                                                 <div style={{justifyItems: 'center', width: 1000, height: 500}}>
