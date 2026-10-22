@@ -12,10 +12,11 @@ Press one hotkey to save the last 20 seconds of gameplay and share in an instant
 
 # Roadmap
 - [x] Write a wrapper for the linux video backend (gpu-screen-recorder)
-- [ ] Write a wrapper for the windows video backend (ScreenRecorderLib) 
+- [x] Write a wrapper for the windows video backend (ScreenRecorderLib) 
 - [ ] Trim and view clips in a modal
 - [ ] Upload to a cloud provider (Cloudflare R2)
 - [ ] Encode for discord (ffmpeg)
+- [ ] Game detection
 
 # Installation
 1: Download a binary from releases.<br>
