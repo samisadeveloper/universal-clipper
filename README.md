@@ -6,9 +6,9 @@ Universal Clipper is an open source clipping application built as an operating s
 
 # Roadmap
 - [x] Write a wrapper for the linux video backend (gpu-screen-recorder)
-- [] Write a wrapper for the windows video backend (ScreenRecorderLib) 
-- [] Encode for discord (ffmpeg)
-- [] Upload to the cloud
+- [ ] Write a wrapper for the windows video backend (ScreenRecorderLib) 
+- [ ] Encode for discord (ffmpeg)
+- [ ] Upload to the cloud
 
 # Installation
 1: Download a binary from releases.
