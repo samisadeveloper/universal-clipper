@@ -7,6 +7,7 @@ Press one hotkey to save the last 20 seconds of gameplay, share with others in a
 
 > [!NOTE]
 > Please note Universal Clipper is in the very early stages of development.
+> <br><br>
 > Bugs are to be expected.
 
 # Roadmap
