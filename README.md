@@ -3,7 +3,7 @@
 <br clear="left" />
 
 Universal Clipper is an operating system agnostic instant-replay game clipper.<br> 
-Press one hotkey to save the last 20 seconds of gameplay,<br>share with others in an instant,<br>optionally upload to a cloud provider of your choice.
+Press one hotkey to save the last 20 seconds of gameplay and share in an instant or upload to cloud.
 
 > [!NOTE]
 > Please note Universal Clipper is in the very early stages of development.
@@ -14,7 +14,7 @@ Press one hotkey to save the last 20 seconds of gameplay,<br>share with others i
 - [x] Write a wrapper for the linux video backend (gpu-screen-recorder)
 - [ ] Write a wrapper for the windows video backend (ScreenRecorderLib) 
 - [ ] Encode for discord (ffmpeg)
-- [ ] Upload to the cloud
+- [ ] Upload to a cloud provider (Cloudflare R2)
 
 # Installation
 1: Download a binary from releases.<br>
