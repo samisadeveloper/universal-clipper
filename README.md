@@ -3,7 +3,7 @@
 <br clear="left" />
 
 Universal Clipper is an operating system agnostic instant-replay game clipper.<br> 
-Press one hotkey to save the last 20 seconds of gameplay, share with others in an instant, optionally upload to a cloud provider of your choice.
+Press one hotkey to save the last 20 seconds of gameplay,<br>share with others in an instant,<br>optionally upload to a cloud provider of your choice.
 
 > [!NOTE]
 > Please note Universal Clipper is in the very early stages of development.
