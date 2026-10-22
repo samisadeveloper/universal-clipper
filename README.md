@@ -18,7 +18,7 @@ Press one hotkey to save the last 20 seconds of gameplay and share in an instant
 
 # Installation
 1: Download a binary from releases.<br>
-2: Once installed and running go [The Website](https://clips.samisa.dev)<br>
+2: Once installed and running, go [here](https://clips.samisa.dev)<br>
 3: Start making clips!
 
 # Disclaimer
