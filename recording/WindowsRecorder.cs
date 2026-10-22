@@ -15,7 +15,7 @@ class WindowsRecorder : IRecorder {
                         }
                 };
 
-                buffer = new RollingMp4Stream(TimeSpan.FromSeconds(30));
+                buffer = new RollingMp4Stream(TimeSpan.FromSeconds(Program.getConfiguration().ClipSizeSeconds));
 
                 recorder = Recorder.CreateRecorder(options);
 

@@ -3,7 +3,7 @@ using SharpHook.Data;
 public class Configuration {
         private string? videosDirectory;
         private KeyCode? hotKey;
-        private int clipSizeSeconds = 60;
+        private int clipSizeSeconds = 15;
 
         private string? inputDevice;
         private string? outputDevice;
