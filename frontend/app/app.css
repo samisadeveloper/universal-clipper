@@ -5,6 +5,10 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+.timeline::-webkit-slider-thumb {
+        width: 200px;
+}
+
 html,
 body {
   @apply bg-white dark:bg-gray-950;
