@@ -1,8 +1,9 @@
 import type { Route } from "./+types/library";
 import { isDaemonRunning, useClips, type Clip } from "../ClipLoader";
 import ClipPreview from "../components/ClipPreview";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
+import EditableClip from "../components/EditableClip";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,6 +18,8 @@ const secondaryText = '#b6b6b8';
 
 export default function Library() {
         const { clips } = useClips();
+
+        const dialogRef = useRef<HTMLDialogElement>(null);
 
         const [ currentClip, setClip ] = useState<Clip>();
         const [isRunning, setRunning] = useState(false);
@@ -33,6 +36,14 @@ export default function Library() {
 
         return (
                 <div>
+                        <dialog style={{border: 'none', outline: 'none', alignSelf: 'center', justifyItems: 'center', backgroundColor: 'transparent'}} ref={dialogRef}>
+                                {currentClip &&
+                                        <div style={{width: '60%', height: '100%', alignItems: 'center', justifyItems: 'center'}}>
+                                                <EditableClip clip={currentClip} />
+                                        </div>
+                                }
+                        </dialog>
+
                         <Header />
 
                         <div style={{justifyItems: 'center'}}>
@@ -43,6 +54,8 @@ export default function Library() {
                                         }}>
                                         {clips.map(clip => (
                                                 <ClipPreview key={clip.id} clip={clip} onClickVideo={() => {
+                                                        dialogRef.current?.showModal();
+
                                                         setClip(clip);
                                                 }}/>
                                         ))}
