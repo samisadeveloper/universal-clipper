@@ -10,6 +10,7 @@ import { FaVolumeUp } from "react-icons/fa";
 
 import { useState, type DialogHTMLAttributes, type MouseEventHandler, type ReactNode, type Ref } from "react";
 import { motion } from "motion/react";
+import MutedButton from "./MutedButton";
 
 const primaryColor = "#2a2d40";
 
@@ -65,26 +66,7 @@ export default function ClipPreview({clip, onClickVideo}: {clip: Clip, onClickVi
                                         onClick={onClickVideo}
                                 />
 
-                                <motion.div 
-                                        onClick={() => {
-                                                setMuted(!muted);
-                                        }}
-
-                                        style={{ 
-                                                backgroundColor: primaryColor,
-                                                borderRadius: 10,
-                                                justifyItems: 'center',
-                                                alignContent: 'center',
-                                                width: 35,
-                                                height: 35,
-                                                zIndex: 10,
-                                                top: 16,
-                                                right: 16,
-                                                position: 'absolute'
-                                }}>
-                                        {muted && <FaVolumeMute style={{color: 'white', fontSize: 20}} />}
-                                        {!muted && <FaVolumeUp style={{color: 'white', fontSize: 20}} />}
-                                </motion.div>
+                                <MutedButton color={primaryColor} setMuted={setMuted} muted={muted} />
                         </motion.div>
 
                         <div style={{marginLeft: 15, marginTop: 5}}>
