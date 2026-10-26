@@ -14,8 +14,8 @@
         # csharp-ls 0.26.0 wants net10.0. Keep 9.0 alongside as a fallback
         # in case sdk_10_0 fails to build on your nixpkgs revision.
         dotnetPkg = pkgs.dotnetCorePackages.combinePackages [
-          pkgs.dotnetCorePackages.sdk_10_0
-          pkgs.dotnetCorePackages.sdk_9_0
+          # pkgs.dotnetCorePackages.sdk_10_0
+          pkgs.dotnetCorePackages.sdk_8_0
         ];
       in
       {
