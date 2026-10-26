@@ -37,6 +37,10 @@ obj/x64/
 bin/x86/
 obj/x86/
 
+# wsl development
+[Oo]bj-wsl/
+[Bb]in-wsl/
+
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
